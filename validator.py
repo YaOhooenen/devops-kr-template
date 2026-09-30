@@ -5,6 +5,10 @@ def validate_email(email: str) -> bool:
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
     return bool(re.match(pattern, email))
 
+def validate_phone(phone: str) -> bool:
+    """Проверяет российский номер телефона."""
+    digits = ''.join(str.isdigit, phone)
+    return len(digits) == 11 and digits[0] in '78'
 
 def validate_snils(snils: str) -> bool:
     """Валидация СНИЛС (Страховой номер индивидуального лицевого счёта).
